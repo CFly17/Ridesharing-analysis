@@ -1,30 +1,45 @@
-# PyBer_Analysis
+# Ride Sharing Analysis
 
 ## Project Overview
-The goal of this analysis was to create a visualization for V.Isualize of a summary dataframe that includes ride-sharing data by city type, specifically using a multiple-line graph showing total weekly fares for each city type. This will, in turn, inform decision-makers at PyBer regarding where they want to take the direction of their business.
+The goal of this analysis was to organize two sets of unstructured data into a visualization based on ride-sharing data across three city types. The result is a multiple-line graph showing total weekly fares for each city type which may inform business decisions at ride-sharing company "PyBer."
 
-1. Analyze student funding.
-2. Analyze student test scores. 
-3. Aggregate the data and showcase performance trends.
-4. Repeat and compare the analysis with Thomas High School 9th grade scores set to null values.
+#### Resources 
+Data sets included:
 
-#### Resources used
-* Data Source: ride_data.csv, city_data.csv
-* Software: Jupyter Notebook (Python, Pandas and Matplotlib library import)
+- ``` ride_data.csv``` 
+    * unprocessed data on city, date, fare and ride ID.
+- ```city_data.csv``` 
+    * unprocessed data on city, driver count and city type. 
 
-## Results
-* What are the differences in ride-sharing data among different city types?
-Below we can see the overall comparison of ride-sharing data by city type:
+Software used:
+* Jupyter Notebook with python, pandas and matplotlib libraries
+
+## Analysis
+
+After merging the data sets by the city column, I was able to perform a number of analyses:
+
+```pyber_data_df = pd.merge(ride_data_df, city_data_df, how="left", on=["city", "city"])```
+
+
+Here we can see the differences in ride-sharing data by city:
+
+![pic](images/Fig1.png)
 
 ![analysis_summary](https://user-images.githubusercontent.com/87148145/151737360-629f2da4-e168-47d3-8bab-28bca8ff1c8d.PNG)
 
-To start, rural drivers are lacking: they account for approximately 20% of suburban drivers and less than 5% of the amount of drivers found in the urban setting. The reason for this is clear: the more rural the area, the longer the distance for each ride. This fact is also reflected in the average fare per driver, which is significantly higher the more rural the area. 
+Over the course of the 4-month data ingestion period, PyBer provided 2,375 rides:
+- Urban rides: 68.4% 
+- Suburban rides: 26.3% 
+- Rural rides: 5.3% 
 
-We can get additional information from the multiple-line chart here:
+Notably, rural drivers account for less than 3% of total drivers, and only about 5% of the ride share:
+
+![pie](images/Fig6.png)
+
+This is likely because of a lower market share and increased ride distances in rural areas, reflected in the higher average fare per drive:
 
 ![Pyber_fare_summary](https://user-images.githubusercontent.com/87148145/151737655-cc3f78dc-abb1-4b52-b945-a94ded6d5fd9.png)
 
-In the four months recorded, total fares were much higher in the urban areas, with suburban and rural, respectively, next in the pecking order. 
 
 ## Summary
 To summarize, this data may inform future growth opportunities at PyBer. The following points were noted for decision-makers:
